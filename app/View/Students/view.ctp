@@ -1,0 +1,98 @@
+<div class="students view">
+<h2><?php  echo __('Student');?></h2>
+	<dl>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
+			<?php echo h($student['Student']['id']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Regno'); ?></dt>
+		<dd>
+			<?php echo h($student['Student']['regno']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Fname'); ?></dt>
+		<dd>
+			<?php echo h($student['Student']['fname']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Lname'); ?></dt>
+		<dd>
+			<?php echo h($student['Student']['lname']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Gender'); ?></dt>
+		<dd>
+			<?php echo h($student['Student']['gender']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Dob'); ?></dt>
+		<dd>
+			<?php echo h($student['Student']['dob']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Department'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($student['Department']['dname'], array('controller' => 'departments', 'action' => 'view', $student['Department']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Yearenrolled'); ?></dt>
+		<dd>
+			<?php echo h($student['Student']['yearenrolled']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Cgpa'); ?></dt>
+		<dd>
+			<?php echo h($student['Student']['cgpa']); ?>
+			&nbsp;
+		</dd>
+	</dl>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Edit Student'), array('action' => 'edit', $student['Student']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Student'), array('action' => 'delete', $student['Student']['id']), null, __('Are you sure you want to delete # %s?', $student['Student']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Students'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Student'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Departments'), array('controller' => 'departments', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Department'), array('controller' => 'departments', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Courses'), array('controller' => 'courses', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Course'), array('controller' => 'courses', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
+<div class="related">
+	<h3><?php echo __('Related Courses');?></h3>
+	<?php if (!empty($student['Course'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Cname'); ?></th>
+		<th><?php echo __('Department Id'); ?></th>
+		<th><?php echo __('Credits'); ?></th>
+		<th class="actions"><?php echo __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($student['Course'] as $course): ?>
+		<tr>
+			<td><?php echo $course['id'];?></td>
+			<td><?php echo $course['cname'];?></td>
+			<td><?php echo $course['department_id'];?></td>
+			<td><?php echo $course['credits'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'courses', 'action' => 'view', $course['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'courses', 'action' => 'edit', $course['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'courses', 'action' => 'delete', $course['id']), null, __('Are you sure you want to delete # %s?', $course['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Course'), array('controller' => 'courses', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
+</div>
