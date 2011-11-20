@@ -1,3 +1,4 @@
+
 Create table students (
 id int AUTO_INCREMENT Primary Key ,
 regno varchar(15) not null UNIQUE,
