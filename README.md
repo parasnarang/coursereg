@@ -20,5 +20,4 @@ The student registration module can be easily customized and extended.
 10. Classrooms
 11. Classrooms_Courses
 
-The sql for these tables is [here](https://github.com/parasnarang/coursereg/SQL/coursereg.sql).
-
+The sql for these tables is [here](https://raw.github.com/parasnarang/coursereg/master/sql/coursereg.sql).
